@@ -53,6 +53,9 @@
                             <constraint firstItem="Lrp-rh-a3G" firstAttribute="top" secondItem="3" secondAttribute="top" type="default" id="tKd-jc-PSU"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="Lrp-rh-a3G" id="PPd-BD-291"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>

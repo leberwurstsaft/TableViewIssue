@@ -10,6 +10,7 @@
 
 
 @interface ViewController ()
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
@@ -18,6 +19,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
+    for (NSUInteger i = 0; i < 2; i++) {
+        for (NSUInteger j = 0; j < 30; j++) {
+            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:j inSection:i];
+            [self.tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
+        }
+    }
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -27,6 +35,7 @@
     // Dispose of any resources that can be recreated.
 }
 
+
 #pragma mark - Table View
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -34,7 +43,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 3;
+    return 30;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -46,9 +55,6 @@
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    [cell setSelected:NO animated:NO]; //   -->   setSelected:YES and the cells can't be deselected anymore...
-}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"Select Row: %@", indexPath);
