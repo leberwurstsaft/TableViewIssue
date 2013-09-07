@@ -5,6 +5,11 @@ Weird UITableView issue that blocks cell selection
 
 Stackoverflow question about the problem: http://stackoverflow.com/questions/18676658/set-uitableviewcell-selected-to-yes-in-willdisplaycell-and-the-cell-cant-be-de
 
+Update (Solution)
+===
+Never set the selection state yourself. Just use ```selectRowAtIndexPath:animated:scrollPosition:``` for all the rows you want to pre-select,
+somewhere after you reload the table view data, or for example in ```-viewDidLoad```.
+
 The question
 ---
 
